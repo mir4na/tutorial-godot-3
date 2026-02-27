@@ -1,15 +1,11 @@
 # Tutorial Godot 3 — Eksplorasi Mekanika Pergerakan
 
-## Daftar Fitur
-
-Proyek ini mengimplementasikan mekanika pergerakan lanjutan dan sistem gameplay pada game platformer 2D menggunakan Godot 4.6.
-
 ### Mekanika Pergerakan
 
 | Fitur | Tombol | Deskripsi |
 |-------|--------|-----------|
 | **Double Jump** | `W` / `↑` | Lompat dua kali berturut-turut, termasuk saat di udara |
-| **Dashing** | Double-tap `A`/`D` atau `←`/`→` | Bergerak sangat cepat untuk waktu singkat (cooldown 2 detik) |
+| **Dashing** | Double-tap `A`/`D` atau `←`/`→` | Bergerak sangat cepat untuk waktu singkat (cooldown 0.5 detik) |
 | **Crouching** | `Space` (tahan) | Jongkok dengan kecepatan berkurang |
 
 ### Sistem Gameplay
