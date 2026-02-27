@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://c6yw4yweb1s6k"]
+
+[ext_resource type="Script" path="res://scripts/obstacle.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://bb27ooq5tnmp7" path="res://assets/meteorBrown_big1.png" id="2_texture"]
+[ext_resource type="Shader" path="res://shaders/danger_pulse.gdshader" id="3_shader"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_danger"]
+shader = ExtResource("3_shader")
+shader_parameter/danger_color = Color(1, 0.1, 0.1, 1)
+shader_parameter/danger_intensity = 0.6
+shader_parameter/pulse_speed = 3.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_drdry"]
+radius = 34.058773
+
+[node name="Obstacle" type="Area2D" unique_id=1131127318]
+collision_layer = 8
+collision_mask = 1
+script = ExtResource("1_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1620924982]
+material = SubResource("ShaderMaterial_danger")
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_texture")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1020273642]
+shape = SubResource("CircleShape2D_drdry")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

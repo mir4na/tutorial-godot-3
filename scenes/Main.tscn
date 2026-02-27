@@ -1,14 +1,75 @@
 [gd_scene format=3 uid="uid://dsyfep1odrxje"]
 
 [ext_resource type="PackedScene" uid="uid://ds60n6krsavle" path="res://scenes/Ground.tscn" id="1_elqb8"]
+[ext_resource type="Texture2D" uid="uid://bwx023tjiq8g8" path="res://pacil.jpg" id="2_q8u5g"]
+[ext_resource type="PackedScene" uid="uid://dvlyhuf4uyjqv" path="res://scenes/player.tscn" id="2_rvslj"]
+[ext_resource type="Script" uid="uid://b5u2woprp0r10" path="res://scripts/main_game.gd" id="3_maingame"]
+[ext_resource type="Script" uid="uid://bbfbhatoa1p44" path="res://scripts/spawner.gd" id="4_spawner"]
+[ext_resource type="PackedScene" uid="uid://7yu7i46ytooh" path="res://scenes/collectible.tscn" id="5_collectible"]
+[ext_resource type="PackedScene" uid="uid://c6yw4yweb1s6k" path="res://scenes/obstacle.tscn" id="6_obstacle"]
+[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="7_hud"]
+[ext_resource type="PackedScene" uid="uid://b15ysyegvstby" path="res://scenes/game_over.tscn" id="8_gameover"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rvslj"]
+size = Vector2(1232, 20)
 
 [node name="Root" type="Node2D" unique_id=918599496]
+script = ExtResource("3_maingame")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1864037712]
+modulate = Color(0.40641972, 0.40641972, 0.40641972, 1)
+offset_right = 1180.0
+offset_bottom = 597.0
+texture = ExtResource("2_q8u5g")
 
 [node name="Ground" parent="." unique_id=673580990 instance=ExtResource("1_elqb8")]
-position = Vector2(296, 324)
+position = Vector2(129, 610)
 
 [node name="Ground2" parent="." unique_id=1551337937 instance=ExtResource("1_elqb8")]
-position = Vector2(856, 324)
+position = Vector2(804, 610)
 
 [node name="Ground3" parent="." unique_id=1648397147 instance=ExtResource("1_elqb8")]
-position = Vector2(576, 394)
+position = Vector2(468, 610)
+
+[node name="Ground4" parent="." unique_id=751659861 instance=ExtResource("1_elqb8")]
+position = Vector2(1024, 610)
+
+[node name="Ground5" parent="." unique_id=1294135397 instance=ExtResource("1_elqb8")]
+position = Vector2(-36, 416)
+rotation = -1.5707964
+
+[node name="Ground6" parent="." unique_id=1712249480 instance=ExtResource("1_elqb8")]
+position = Vector2(1187, 427)
+rotation = -1.5707964
+
+[node name="Ground7" parent="." unique_id=406044178 instance=ExtResource("1_elqb8")]
+position = Vector2(-36, 113)
+rotation = -1.5707964
+
+[node name="Ground8" parent="." unique_id=448856412 instance=ExtResource("1_elqb8")]
+position = Vector2(1187, 144)
+rotation = -1.5707964
+
+[node name="Player" parent="." unique_id=1604869909 instance=ExtResource("2_rvslj")]
+position = Vector2(185, 491)
+
+[node name="LifelineArea" type="Area2D" parent="." unique_id=526418936]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LifelineArea" unique_id=373593457]
+position = Vector2(579, 634)
+shape = SubResource("RectangleShape2D_rvslj")
+
+[node name="Spawner" type="Node2D" parent="." unique_id=872887946]
+script = ExtResource("4_spawner")
+collectible_scene = ExtResource("5_collectible")
+obstacle_scene = ExtResource("6_obstacle")
+
+[node name="CollectibleTimer" type="Timer" parent="Spawner" unique_id=146338063]
+
+[node name="ObstacleTimer" type="Timer" parent="Spawner" unique_id=893913423]
+
+[node name="HUD" parent="." unique_id=630694209 instance=ExtResource("7_hud")]
+
+[node name="GameOver" parent="." unique_id=1882703431 instance=ExtResource("8_gameover")]

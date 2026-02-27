@@ -1,0 +1,144 @@
+[gd_scene format=3 uid="uid://dlm3vwc8cdhk2"]
+
+[ext_resource type="Script" uid="uid://ds8ggvki6cdad" path="res://scripts/main_menu.gd" id="1_script"]
+
+[node name="MainMenu" type="Control" unique_id=541730794]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Background" type="ColorRect" parent="." unique_id=225729002]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.08, 0.08, 0.15, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1721662569]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="VBoxContainer" unique_id=1317039837]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.84, 0, 1)
+theme_override_font_sizes/font_size = 52
+text = "Tutorial Godot 3"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="VBoxContainer" unique_id=1484019032]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.8, 1)
+theme_override_font_sizes/font_size = 18
+text = "inti gamenya adalah tangkep logo csui dan hindari meteor :D"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="VBoxContainer" unique_id=641083478]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="VBoxContainer" unique_id=464345761]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "▶  Play"
+
+[node name="HowToPlayButton" type="Button" parent="VBoxContainer" unique_id=474044958]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "❓  How to Play"
+
+[node name="HowToPlayPanel" type="Panel" parent="." unique_id=429707206]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelBg" type="ColorRect" parent="HowToPlayPanel" unique_id=64504342]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.05, 0.12, 0.95)
+
+[node name="VBox" type="VBoxContainer" parent="HowToPlayPanel" unique_id=112482059]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -200.0
+offset_right = 280.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="HTPTitle" type="Label" parent="HowToPlayPanel/VBox" unique_id=1057230640]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.84, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "How to Play"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="HowToPlayPanel/VBox" unique_id=1371227507]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Controls" type="Label" parent="HowToPlayPanel/VBox" unique_id=771118790]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.95, 1)
+theme_override_font_sizes/font_size = 18
+text = "🎮  Kontrol:
+    A / ←  →  D / →        =   Bergerak kiri / kanan
+    W / ↑                        =   Lompat (2x untuk double jump)
+    Space                        =   Jongkok
+    Double-tap A/D      =   Dash
+
+⭐  Tujuan:
+    Tangkap logo fasilkom yang jatuh dari atas untuk mendapatkan point.
+    Hindari meteor merah dari 3 arah (atas, kiri, kanan).
+
+❤️  Nyawa:
+    Player punya 3 nyawa.
+    Terkena obstacle = Kurang 1 nyawa.
+    Gagal menangkap object = Kurang 1 nyawa.
+    Nyawa habis? tewas :v (game over)"
+
+[node name="Spacer2" type="Control" parent="HowToPlayPanel/VBox" unique_id=1772464379]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="HowToPlayPanel/VBox" unique_id=413248469]
+custom_minimum_size = Vector2(200, 45)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "← Kembali"
+
+[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/HowToPlayButton" to="." method="_on_how_to_play_pressed"]
+[connection signal="pressed" from="HowToPlayPanel/VBox/BackButton" to="." method="_on_back_pressed"]
