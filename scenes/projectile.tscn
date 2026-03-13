@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cs5ab6oc4t2s1"]
+
+[ext_resource type="Script" path="res://scripts/projectile.gd" id="1_xxx"]
+[ext_resource type="AudioStream" uid="uid://bxxxlaser" path="res://assets/Laser Gun Sound Effect (mp3cut.net).mp3" id="2_laser"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pxxx"]
+radius = 5.0
+
+[node name="Projectile" type="Area2D"]
+script = ExtResource("1_xxx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pxxx")
+
+[node name="ShootSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_laser")
+autoplay = true

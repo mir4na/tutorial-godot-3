@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://be0nhlgsue2xh"
+path="res://.godot/imported/Collect Item Pack - Game Sound Effects - Free To Use Sound Effects - UNLIMITED SOUND EFFECTS.mp3-59d84a2c46d412571a05fd60e9f7a67c.mp3str"
+
+[deps]
+
+source_file="res://assets/Collect Item Pack - Game Sound Effects - Free To Use Sound Effects - UNLIMITED SOUND EFFECTS.mp3"
+dest_files=["res://.godot/imported/Collect Item Pack - Game Sound Effects - Free To Use Sound Effects - UNLIMITED SOUND EFFECTS.mp3-59d84a2c46d412571a05fd60e9f7a67c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

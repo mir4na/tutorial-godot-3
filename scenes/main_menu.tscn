@@ -39,14 +39,14 @@ theme_override_constants/separation = 20
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.84, 0, 1)
 theme_override_font_sizes/font_size = 52
-text = "Tutorial Godot 3"
+text = "Tutorial Godot 5"
 horizontal_alignment = 1
 
 [node name="Subtitle" type="Label" parent="VBoxContainer" unique_id=1484019032]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.7, 0.7, 0.8, 1)
 theme_override_font_sizes/font_size = 18
-text = "inti gamenya adalah tangkep logo csui dan hindari meteor :D"
+text = "game tembak-tembak"
 horizontal_alignment = 1
 
 [node name="Spacer" type="Control" parent="VBoxContainer" unique_id=641083478]
@@ -60,6 +60,7 @@ theme_override_font_sizes/font_size = 24
 text = "▶  Play"
 
 [node name="HowToPlayButton" type="Button" parent="VBoxContainer" unique_id=474044958]
+visible = false
 custom_minimum_size = Vector2(250, 50)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24

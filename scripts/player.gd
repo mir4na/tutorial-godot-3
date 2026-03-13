@@ -15,6 +15,7 @@ signal died
 @export var crouch_speed = 80.0
 @export var max_health = 3
 @export var invincibility_duration = 1.0
+@export var projectile_scene: PackedScene
 
 var jump_count = 0
 var is_dashing = false
@@ -25,6 +26,8 @@ var last_left_tap_time = -1.0
 var last_right_tap_time = -1.0
 var health = 3
 var score = 0
+var aim_angle = -PI / 2.0
+var aim_direction = Vector2.UP
 
 @onready var animation = $AnimatedSprite2D
 @onready var bot_collision = $CollisionShapeBot
@@ -32,6 +35,17 @@ var score = 0
 @onready var dash_timer = $DashTimer
 @onready var dash_cooldown_timer = $DashCooldownTimer
 @onready var invincibility_timer = $InvincibilityTimer
+
+func _process(delta):
+	var rotation_input = Input.get_action_strength("aim_right") - Input.get_action_strength("aim_left")
+	if rotation_input != 0:
+		aim_angle += rotation_input * 5.0 * delta
+		aim_angle = clamp(aim_angle, -PI, 0)
+		aim_direction = Vector2(cos(aim_angle), sin(aim_angle))
+	queue_redraw()
+
+func _draw():
+	draw_line(Vector2.ZERO, aim_direction * 300, Color(1, 0, 0, 1), 2.0)
 
 func _ready():
 	health = max_health
@@ -51,12 +65,11 @@ func _physics_process(delta):
 	_handle_dash()
 	_handle_crouch()
 	_handle_movement()
+	_handle_shooting()
 	_update_animation()
 	move_and_slide()
 
 func _apply_gravity(delta):
-	if is_dashing:
-		return
 	velocity.y += delta * gravity
 
 func _handle_jump():
@@ -64,6 +77,7 @@ func _handle_jump():
 		jump_count = 0
 
 	if Input.is_action_just_pressed("jump") and jump_count < max_jumps:
+		$JumpSfx.play()
 		velocity.y = jump_speed
 		jump_count += 1
 
@@ -119,6 +133,13 @@ func _handle_movement():
 		animation.flip_h = false
 	else:
 		velocity.x = 0
+
+func _handle_shooting():
+	if Input.is_action_just_pressed("shoot") and projectile_scene:
+		var proj = projectile_scene.instantiate()
+		proj.position = global_position
+		proj.direction = aim_direction
+		get_parent().add_child(proj)
 
 func _update_animation():
 	if is_dashing:

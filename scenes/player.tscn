@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dvlyhuf4uyjqv"]
 
 [ext_resource type="Script" uid="uid://c0a6wcij7il45" path="res://scripts/player.gd" id="1_dqkch"]
+[ext_resource type="PackedScene" path="res://scenes/projectile.tscn" id="2_projectile"]
 [ext_resource type="Texture2D" uid="uid://d1ujqe7airurj" path="res://assets/kenney_platformercharacters/PNG/Adventurer/Poses/adventurer_duck.png" id="2_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://c1p5g33wabvfp" path="res://assets/kenney_platformercharacters/PNG/Adventurer/Poses/adventurer_fall.png" id="3_d2wvv"]
 [ext_resource type="Texture2D" uid="uid://dg3q4a7elmavw" path="res://assets/kenney_platformercharacters/PNG/Adventurer/Poses/adventurer_idle.png" id="3_dqkch"]
@@ -12,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dmn8133tt40x1" path="res://assets/kenney_platformercharacters/PNG/Adventurer/Poses/adventurer_walk2.png" id="6_ur7pv"]
 [ext_resource type="Texture2D" uid="uid://cq0ccy1o814d5" path="res://assets/kenney_platformercharacters/PNG/Adventurer/Poses/adventurer_slide.png" id="7_fjrip"]
 [ext_resource type="Shader" uid="uid://c2hwd34l3eykf" path="res://shaders/hit_flash.gdshader" id="8_shader"]
+[ext_resource type="AudioStream" uid="uid://di2f8ijfoiokr" path="res://assets/Jump Sound Effect - Technical sp (mp3cut.net).mp3" id="13_jej6c"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hitflash"]
 shader = ExtResource("8_shader")
@@ -139,6 +141,7 @@ size = Vector2(59, 59.5)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1604869909]
 script = ExtResource("1_dqkch")
+projectile_scene = ExtResource("2_projectile")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1108273614]
 material = SubResource("ShaderMaterial_hitflash")
@@ -165,6 +168,9 @@ one_shot = true
 
 [node name="InvincibilityTimer" type="Timer" parent="." unique_id=329868113]
 one_shot = true
+
+[node name="JumpSfx" type="AudioStreamPlayer" parent="." unique_id=1898481188]
+stream = ExtResource("13_jej6c")
 
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="DashCooldownTimer" to="." method="_on_dash_cooldown_timeout"]

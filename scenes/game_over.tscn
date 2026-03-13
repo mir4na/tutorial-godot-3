@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b15ysyegvstby"]
 
 [ext_resource type="Script" uid="uid://xuiouyb6ysrg" path="res://scripts/game_over.gd" id="1_script"]
+[ext_resource type="AudioStream" path="res://assets/The Price is Right Losing Horn - Sound Effect (HD) - Gaming Sound FX.mp3" id="2_losebgm"]
 
 [node name="GameOver" type="CanvasLayer" unique_id=953116395]
 visible = false
@@ -44,3 +45,6 @@ theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
 theme_override_font_sizes/font_size = 20
 text = "Press Jump to Restart"
 horizontal_alignment = 1
+
+[node name="LoseBgm" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_losebgm")

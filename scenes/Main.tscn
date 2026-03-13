@@ -6,9 +6,10 @@
 [ext_resource type="Script" uid="uid://b5u2woprp0r10" path="res://scripts/main_game.gd" id="3_maingame"]
 [ext_resource type="Script" uid="uid://bbfbhatoa1p44" path="res://scripts/spawner.gd" id="4_spawner"]
 [ext_resource type="PackedScene" uid="uid://7yu7i46ytooh" path="res://scenes/collectible.tscn" id="5_collectible"]
-[ext_resource type="PackedScene" uid="uid://c6yw4yweb1s6k" path="res://scenes/obstacle.tscn" id="6_obstacle"]
+[ext_resource type="PackedScene" uid="uid://mxxxxmeteor" path="res://scenes/meteor.tscn" id="6_obstacle"]
 [ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="7_hud"]
 [ext_resource type="PackedScene" uid="uid://b15ysyegvstby" path="res://scenes/game_over.tscn" id="8_gameover"]
+[ext_resource type="AudioStream" uid="uid://cggc3hecvh1a3" path="res://assets/boba date ♫  cute background music (royalty free) - Stream Cafe.mp3" id="10_lhr70"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rvslj"]
 size = Vector2(1232, 20)
@@ -63,13 +64,15 @@ shape = SubResource("RectangleShape2D_rvslj")
 
 [node name="Spawner" type="Node2D" parent="." unique_id=872887946]
 script = ExtResource("4_spawner")
-collectible_scene = ExtResource("5_collectible")
 obstacle_scene = ExtResource("6_obstacle")
-
-[node name="CollectibleTimer" type="Timer" parent="Spawner" unique_id=146338063]
 
 [node name="ObstacleTimer" type="Timer" parent="Spawner" unique_id=893913423]
 
 [node name="HUD" parent="." unique_id=630694209 instance=ExtResource("7_hud")]
 
 [node name="GameOver" parent="." unique_id=1882703431 instance=ExtResource("8_gameover")]
+
+[node name="Bgm" type="AudioStreamPlayer" parent="." unique_id=2031172848]
+stream = ExtResource("10_lhr70")
+autoplay = true
+parameters/looping = true

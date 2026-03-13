@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cggc3hecvh1a3"
+path="res://.godot/imported/boba date ♫  cute background music (royalty free) - Stream Cafe.mp3-5c1454736c46600421ac7a3a1ac23dae.mp3str"
+
+[deps]
+
+source_file="res://assets/boba date ♫  cute background music (royalty free) - Stream Cafe.mp3"
+dest_files=["res://.godot/imported/boba date ♫  cute background music (royalty free) - Stream Cafe.mp3-5c1454736c46600421ac7a3a1ac23dae.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
