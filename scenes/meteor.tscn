@@ -1,16 +1,22 @@
 [gd_scene format=3 uid="uid://mxxxxmeteor"]
 
-[ext_resource type="Script" path="res://scripts/meteor.gd" id="1_xxx"]
-[ext_resource type="AudioStream" uid="uid://cxxxexplosion" path="res://assets/Explosion Sound Effects (mp3cut.net).mp3" id="2_explosion"]
+[ext_resource type="Script" uid="uid://ddei0m3ulxthj" path="res://scripts/meteor.gd" id="1_xxx"]
+[ext_resource type="Texture2D" uid="uid://bb27ooq5tnmp7" path="res://assets/meteorBrown_big1.png" id="2_83eji"]
+[ext_resource type="AudioStream" uid="uid://bhjcbpph64nxj" path="res://assets/Explosion Sound Effects (mp3cut.net).mp3" id="2_explosion"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pxxx"]
 radius = 30.0
 
-[node name="Meteor" type="Area2D"]
+[node name="Meteor" type="Area2D" unique_id=1532979588]
 script = ExtResource("1_xxx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="MeteorBrownBig1" type="Sprite2D" parent="." unique_id=622070401]
+position = Vector2(0, 1)
+scale = Vector2(0.7970297, 0.8095238)
+texture = ExtResource("2_83eji")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=937835542]
 shape = SubResource("CircleShape2D_pxxx")
 
-[node name="ExplosionSfx" type="AudioStreamPlayer" parent="."]
+[node name="ExplosionSfx" type="AudioStreamPlayer" parent="." unique_id=1412026037]
 stream = ExtResource("2_explosion")

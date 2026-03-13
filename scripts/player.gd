@@ -135,7 +135,7 @@ func _handle_movement():
 		velocity.x = 0
 
 func _handle_shooting():
-	if Input.is_action_just_pressed("shoot") and projectile_scene:
+	if (Input.is_action_just_pressed("shoot") or Input.is_action_pressed("shoot")) and projectile_scene:
 		var proj = projectile_scene.instantiate()
 		proj.position = global_position
 		proj.direction = aim_direction
